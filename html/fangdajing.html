@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>fangdajing</title>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	#small-pic{
+		width: 260px;
+		height: 140px;
+		float: left;
+	}
+	#small-img{
+		width: 260px;
+		height: 140px;
+		float: left;
+		position: relative;
+	}
+	#big-img{
+		
+		position: absolute;
+	}
+	#big-pic{
+		width: 400px;
+		height: 200px;
+		float: left;
+		overflow: hidden;
+		display: none;
+		position: relative;
+	}
+	#drag{
+		width: 40px;
+		height: 30px;
+		background: #ccc;
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: 1;
+		opacity: 0.7;
+		filter: alpha(opacity=70);
+		display: none;
+	}
+	</style>
+</head>
+<body>
+	<div id="small-pic">
+		<div id="drag"></div>
+		<img src="../../../../Users/Mr%20Ripper/Desktop/web前端/新建文件夹/1.jpg" id="small-img">
+	</div>
+	<div id="big-pic">
+		<img src="../../../../Users/Mr%20Ripper/Desktop/web前端/新建文件夹/1.jpg" id="big-img">
+	</div>
+	
+
+	<script type="text/javascript">
+		var oDrag = document.getElementById('drag');
+		var oBigPic = document.getElementById('big-pic');
+		var oSmallpic = document.getElementById('small-pic');
+		var oBigImg = document.getElementById('big-img');
+		oSmallpic.onmouseover = function(){
+			oDrag.style.display = 'block';
+			oBigPic.style.display = 'block';
+		};
+		oSmallpic.onmouseout = function(){
+			oDrag.style.display = 'none';
+			oBigPic.style.display = 'none';
+		};
+		oSmallpic.onmousemove = function(e){
+			e = e || event;
+			var left = e.clientX - oDrag.offsetWidth /2;
+			var top = e.clientY - oDrag.offsetHeight / 2;
+			if (left >= oSmallpic.offsetWidth - oDrag.offsetWidth) {
+				left = oSmallpic.offsetWidth - oDrag.offsetWidth;
+			}
+			if(left <= 0){
+				left = 0;
+			}
+			if (top<= 0) {
+				top = 0;
+			}
+			if (top >= oSmallpic.offsetHeight - oDrag.offsetHeight) {
+				top = oSmallpic.offsetHeight - oDrag.offsetHeight;
+			}
+			oDrag.style.left = left + 'px';
+			oDrag.style.top = top + 'px';
+
+			var iScaleX = (e.clientX - oDrag.offsetWidth/2 ) / (
+				oSmallpic.offsetWidth - oDrag.offsetWidth);
+			var iScaleY = (e.clientY - oDrag.offsetHeight/2 ) / (
+				oSmallpic.offsetHeight - oDrag.offsetHeight);
+
+			oBigImg.style.left = -iScaleX * (oBigImg.offsetWidth - oBigPic.offsetWidth) + 'px';
+			oBigImg.style.top = -iScaleY * (oBigImg.offsetHeight - oBigPic.offsetHeight) + 'px';
+
+		};
+
+
+	</script> 
+</body>
+</html>
