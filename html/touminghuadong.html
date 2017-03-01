@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>透明滑动</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#container{
+			width: 520px;
+			height: 280px;
+			margin: 50px auto;
+			position: relative;
+			overflow: hidden;
+		}
+		#container img{
+			width: 520px;
+			height: 280px;
+			position: absolute;
+			top:  0;
+			left: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="container">
+		<img src="1.jpg" id="img1" style="z-index :4">
+		<img src="2.jpg" style="z-index :3">
+		<img src="3.jpg" style="z-index :2">
+		<img src="4.jpg" style="z-index :1">
+	</div>
+	<script src="wichung-1.0.js"></script>
+	<script type="text/javascript">
+		var oContainer = document.getElementById('container');
+		var aImg = oContainer.getElementsByTagName('img');
+		oContainer.onclick = function(e){
+			var target = e.target || window.event.srcElement;//target 点击的目标值 window是防止兼容性问题
+			if (target!=oContainer) {
+				var rand = Math.floor(Math.random()*4);
+				var data = {opacity :0};
+				switch(rand){
+					case 0:
+					data.left = 0;
+					data.top = -aImg[0].offsetHeight;
+					break;
+					case 1:
+					data.top = aImg[0].offsetHeight;
+					break;
+					case 2:
+					data.left = -aImg[0].offsetHeight;
+					break;
+					case 3:
+					data.left = aImg[0].offsetHeight;
+					break;
+
+
+				}
+				animate(target,data,function(){
+					 target.style.top = 0;   //把target的top值拽回到0；
+					 target.style.left = 0;
+					 for (var i = 0; i < aImg.length; i++) {
+					 	aImg[i].style.zIndex ++;
+					 }
+					 target.style.zIndex = 1;
+					target.style.opacity = 1;//把当前选中的透明度进行修改；
+					 target.style.filter = 'alpha(opacity = 100)';
+
+				});
+				
+			}
+		};
+			// function up(obj){
+			// 	animate(obj,{
+			// 		opacity = 0, 
+			// 		top : -aImg[0].offsetHeight
+			// 	},function(){
+			// 		 obj.style.top = 0;   //把target的top值拽回到0；
+			// 		 for (var i = 0; i < aImg.length; i++) {
+			// 		 	aImg[i].style.zIndex ++;
+			// 		 }
+			// 		 obj.style.zIndex = 1;
+			// 		 obj.style.opacity = 1;//把当前选中的透明度进行修改；
+			// 		 obj.style.filter = 'alpha(opacity = 100)';
+
+			// 	});
+			// }
+			// function down(obj){
+			// 	animate(obj,{
+			// 		opacity = 0, 
+			// 		top : aImg[0].offsetHeight
+			// 	},function(){
+			// 		 obj.style.top = 0;   //把target的top值拽回到0；
+			// 		 for (var i = 0; i < aImg.length; i++) {
+			// 		 	aImg[i].style.zIndex ++;
+			// 		 }
+			// 		 obj.style.zIndex = 1;
+			// 		 obj.style.opacity = 1;//把当前选中的透明度进行修改；
+			// 		 obj.style.filter = 'alpha(opacity = 100)';
+
+			// 	});
+			// }function left(obj){
+			// 	animate(obj,{
+			// 		opacity = 0, 
+			// 		left : -aImg[0].offsetWidth
+			// 	},function(){
+			// 		 obj.style.top = 0;   //把target的top值拽回到0；
+			// 		 for (var i = 0; i < aImg.length; i++) {
+			// 		 	aImg[i].style.zIndex ++;
+			// 		 }
+			// 		 obj.style.zIndex = 1;
+			// 		 obj.style.opacity = 1;//把当前选中的透明度进行修改；
+			// 		 obj.style.filter = 'alpha(opacity = 100)';
+
+			// 	});
+			// }
+			// function right(obj){
+			// 	animate(obj,{
+			// 		opacity = 0, 
+			// 		left : aImg[0].offsetHeight
+			// 	},function(){
+			// 		 obj.style.top = 0;   //把target的top值拽回到0；
+			// 		 for (var i = 0; i < aImg.length; i++) {
+			// 		 	aImg[i].style.zIndex ++;
+			// 		 }
+			// 		 obj.style.zIndex = 1;
+			// 		 obj.style.opacity = 1;//把当前选中的透明度进行修改；
+			// 		 obj.style.filter = 'alpha(opacity = 100)';
+
+			// 	});
+			// }
+
+
+
+		
+
+	</script>
+</body>
+</html>
