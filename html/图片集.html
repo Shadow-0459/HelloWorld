@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>轮播图</title>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	ul{
+		list-style: none;
+	}
+	#caltianer{
+		margin: 200px auto;
+		width: 520px;
+		height: 280px;
+		position: relative;
+		overflow: hidden;/*移除隐藏*/
+	}
+	#imgs{
+		width: 2080px;
+		height: 280px;
+		position: absolute;
+	}
+
+	#imgs .img1{
+		display: block;
+	}
+	#imgs img{
+		float: left;
+	}
+	.tab{
+		position: absolute;
+		right: 10px;
+		bottom: 10px;
+	}
+	#arrows{
+		position: absolute;
+		left: 20px;
+		bottom: 10px;
+	}
+	.tab li{
+		width: 20px;
+		height: 20px;
+		float: left;
+		background:#000;
+		color: white;
+		margin-right:2px;
+		text-align: center;
+		line-height: 20px; 
+		cursor: pointer;
+	}
+	.tab .selected{
+		background: orange;
+	}
+
+	#lt,#gt{
+		width: 20px;
+		height: 20px;
+		float: left;
+		background:black;
+		color: white;
+		margin-right:2px;
+		text-align: center;
+		line-height: 20px; 
+		display: inline-block;
+		cursor: pointer;
+	}
+	</style>
+</head>
+<body>
+	<div id="caltianer">
+		<div id="imgs">
+			<img src="../../../../Users/Mr%20Ripper/Desktop/web前端/新建文件夹/1.jpg" class="img1">
+			<img src="../../../../Users/Mr%20Ripper/Desktop/web前端/新建文件夹/2.jpg">
+			<img src="../../../../Users/Mr%20Ripper/Desktop/web前端/新建文件夹/3.jpg">
+			<img src="../../../../Users/Mr%20Ripper/Desktop/web前端/新建文件夹/4.jpg">
+		</div>
+		
+		<ul class="tab">
+			<li class="selected">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		
+		<div id="arrows">
+			<span id="lt">  &lt;  </span>
+			<span id="gt">  &gt;  </span>
+		</div>
+		
+	</div>
+	//内敛样式
+	<script type="text/javascript">
+		var oTab = document.getElementById('tab');
+		var oContainer = document.getElementById('caltianer');
+		var aLi = document.getElementsByTagName('li');
+		var oImags = document.getElementById('imgs');
+		var aImag = oImags.getElementsByTagName('img');
+		var oPrev = document.getElementById('lt');
+		var oNext = document.getElementById('gt');
+		var nowIdx = 0;
+
+		for (var i = 0; i<aLi.length; i++) {
+			aLi[i].index = i;
+			aLi[i].onmouseover = function(){
+				changeImg(this.index);
+
+			};
+		}
+		var timer;
+			function changeImg(idx){//idx为当前选中的下标
+				var speed = 20;
+				var timerspeed = 50;
+				var direction = 'left';
+				if (nowIdx < idx) {
+					speed = -20;
+					direction = 'left';
+					timerspeed = timerspeed / (idx - nowIdx);
+				}
+				else if (nowIdx > idx) {
+					speed = 20;
+					direction = 'right';
+					timerspeed = timerspeed / (nowIdx - idx);
+				}
+
+
+
+
+				nowIdx = idx;
+
+				for (var i = 0; i < aLi.length; i++) {
+					aLi[i].style.background = '#000';
+
+				}
+				aLi[nowIdx].style.background = 'orange';
+
+				 clearInterval(timer);
+				 timer = setInterval(function(){
+					if (direction == 'left' && oImags.offsetLeft <= -nowIdx * aImag[0].offsetWidth) {
+						clearInterval(timer);
+					}
+					if (direction == 'right' && oImags.offsetLeft >= -nowIdx * aImag[0].offsetWidth) {
+						clearInterval(timer);
+					}
+					
+					oImags.style.left = oImags.offsetLeft + speed + 'px';
+					
+				},timerspeed);
+
+					
+				}
+			
+		
+	</script>
+</body>
+</html>
