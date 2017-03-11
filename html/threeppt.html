@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>threeppt</title>
+	<style type="text/css">
+	div{
+		margin: 20px;
+		width: 100px;
+		height: 50px;
+		background:red;
+	}
+	</style>
+</head>
+<body>
+	<div id="div1"> </div>
+	<div id="div2"> </div>
+	<div id="div3"> </div>
+
+	<script type="text/javascript">
+		var oDiv = document.getElementsByTagName('div');
+		
+		for (var i = 0; i < oDiv.length; i++) {
+			oDiv[i].timer = null;
+			oDiv[i].onmouseover = function(){
+				clearInterval(this.timer);
+				var that = this;
+				this.timer = setInterval(function(){
+					if (that.offsetWidth >= 300) {
+						clearInterval(that.timer);
+					}
+					else 
+						that.style.width = that.offsetWidth + 10 + 'px';
+				},30);
+			};
+			oDiv[i].onmouseout = function(){
+				clearInterval(this.timer);
+				var that = this;
+				this.timer = setInterval(function(){
+					if (that.offsetWidth <= 100) {
+						clearInterval(that.timer);
+					}
+					else 
+						that.style.width = that.offsetWidth - 10 + 'px';
+				},30);
+			}
+		}
+	</script>
+</body>
+</html>
