@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>fanzhaopain</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#imgs .show{
+			-webkit-animation:show 1s ease-in forwards;
+		}
+		#imgs .hide{
+			-webkit-animation:hide 0.5s ease-in forwards;
+		}
+		@-webkit-keyframes show{
+			0%{
+				-webkit-transform:rotateX(180deg);
+				opacity: 0;
+			}
+			100%{
+				-webkit-transform:rotateX(0deg);
+				opacity: 1;
+			}
+		}
+		@-webkit-keyframes hide{
+			0%{
+				-webkit-transform:rotateX(0deg);
+				opacity: 1;
+			}
+			100%{
+				-webkit-transform:rotateX(-180deg);
+				opacity: 0;
+			}
+		}
+		#container{
+			width: 600px;
+			height: 500px;
+			margin: 100px auto;
+			position: relative;
+		}
+		#imgs, #imgs img{
+			width:600px;
+			height: 400px; 
+		}
+		#imgs{
+			-webkit-perspective:800px;
+		}
+		#imgs img{
+			
+			position: absolute;
+			opacity: 0;
+			-webkit-transform-origin:bottom;
+		}
+		
+		#prev, #next{
+			width: 50px;
+			height: 50px;
+			background: #ccc; 
+			position: absolute;
+			-webkit-border-radius:50%;
+			top: 50%;
+			margin-top: -25px;
+			font-size: 50px;
+			line-height: 50px;
+			text-align: center;
+			-webkit-box-shadow:10px 10px 10px rgba(0,0,0,0.5);
+			cursor: pointer;
+			color: white;
+			-webkit-text-stroke:2px #000;
+		}
+		#prev{
+			left: -100px;
+		}
+		#next{
+			right: -100px;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="imgs">
+			<img src="3.jpg" class="show">
+			<img src="4.jpg">
+			<img src="5.jpg">
+			<img src="6.jpg">
+		</div>
+		<span id="prev">&lt;</span>
+		<span id="next">&gt;</span>
+
+	</div>	
+	<script>
+		(function(){
+			var oPrev = document.getElementById('prev');
+			var oNext = document.getElementById('next');
+			var	oImg = document.getElementsByTagName('img');
+			var nowIdx = 0;
+			oNext.onclick = function(){
+				oImg[nowIdx].className = 'hide';
+				nowIdx++ ;
+				if (nowIdx==oImg.length) {
+					nowIdx = 0;
+				}
+				oImg[nowIdx].className = 'show';
+			};
+			oPrev.onclick = function(){
+				oImg[nowIdx].className = 'hide';
+				nowIdx-- ;
+				if (nowIdx==-1) {
+					nowIdx = oImg.length-1;
+				}
+				oImg[nowIdx].className = 'show';
+			};
+		})();
+	</script>
+</body>
+</html>
