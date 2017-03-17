@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>图片墙</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		/*body{*/
+			/*background: url(img/bg.jpg) repeat;*/
+		/*}*/
+		#container{
+			width: 100%;
+			height: 100%;	
+			position: absolute;
+			left:0;
+			top:0;
+
+		
+		}
+		#container .img{
+			border: 5px solid #fff;
+			-webkit-box-shadow:2px 2px 2px rgba(0,0,0,0.5);
+			position: absolute;
+			/*top: -500px;
+			left: -500px;*/
+			top: -200px;
+			left: -200px;
+			background-repeat: no-repeat;
+			cursor: pointer;
+			-webkit-transition:all 1s ease-in-out; 
+		}
+		#container span{
+			width: 100%;
+			height : 100%;
+			opacity: 0;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-repeat: no-repeat;
+			-webkit-transition:all 1s ease-in-out;
+		}
+		#prev, #next{
+			width: 60px;
+			height: 60px;
+			background: #ffffff;
+			opacity: 0.8;
+			top: 50%;
+			margin-top: -30px;
+			position: absolute;
+			background-repeat: no-repeat;
+			background-position: center;
+			cursor: pointer;
+			display: none;
+		}
+		#prev{
+			/*//background: url(img/prev.png) ;*/
+			left: -20px;
+			-webkit-border-radius:8px 0 0 8px;
+
+		}
+		#next{
+			/*background: url(img/next.png) ;*/
+			right: -20px;
+			-webkit-border-radius:0 8px 8px 0;
+		}
+	</style>
+
+</head>
+<body>
+	<div id="container"></div>
+	<span id="prev"></span>
+	<span id="next"></span>
+	<script type="text/javascript">
+		(function(){
+			var count = 0;//计数加载图片个数
+			var index = 0;
+			var bClick = false;//标识图片是否被点过
+			var nowIdx = 1;
+		// 1.预加载24张图片不会
+		
+		// img.onload = function(){
+		// 	// 在这里img.offsetWidth能取到
+		// };
+		var COL = 6;
+		var ROW = 4;
+		var NUM = COL * ROW;
+		var BIG_width = 750;
+		var BIG_height = 500;
+		var thumb_width = 125;
+		var thumb_height = 125;// 
+		var oContainer = document.getElementById('container');
+		var aImg = document.getElementsByClassName('img');
+		// 
+		var oPrev = document.getElementById('prev');
+		var oNext = document.getElementById('next');
+		// 预加载
+		for (var i = 0; i < NUM ; i++) {	
+			var thumbimg = new Image();
+			thumbimg.onload = function(){
+				count ++ ;
+				if (count == NUM * 2) {
+					loadSuccess();
+				}
+			};
+			thumbimg.src = 'img/thumbs/' + (i + 1) + '.jpg'; 
+			
+			var bigimg = new Image();
+			bigimg.onload = function(){
+				count ++ ;
+				if (count == NUM * 2) {
+					loadSuccess();
+				}
+			};
+			bigimg.src = 'img/' + (i + 1) + '.jpg'; 
+
+					}
+		var icolGap = (oContainer.offsetWidth - thumb_width * COL) / (COL + 1);
+		var irowGap = (oContainer.offsetHeight - thumb_height * ROW) / (ROW + 1);
+		function loadSuccess(){ 
+			//如果成功就创建div
+			for (var i = 0; i < ROW; i++) {
+				for (var j= 0; j < COL; j++) {
+					index++;
+				//2.创建24个div不会	
+					var oDiv = document.createElement('div');
+					oDiv.className = 'img';
+					oDiv.style.width = thumb_width + 'px';
+					oDiv.style.height = thumb_height + 'px';
+					
+					// oDiv.style.backgroundImage = 'url(img/thumbs/'+ index +'.jpg)';
+					//注意空格的个数
+					oDiv.style.backgroundImage = 'url(img/thumbs/'+ index +'.jpg)';
+					oDiv.innerHTML = '<span></span>';
+					oDiv.pos = {
+						row : i,
+						col : j ,
+						left: j*(icolGap + thumb_width)+ icolGap,
+						top : i *(irowGap+ thumb_height) + irowGap
+					};
+					oDiv.index = index;
+					oContainer.appendChild(oDiv); 
+				}
+			}	
+
+			var timer = setInterval(function(){
+			
+				// console.log(index-1);
+				aImg[--index].style.left = aImg[index].pos.col * (icolGap+thumb_width) + icolGap + 'px';
+				// aImg[--index].style.left = aImg[index].pos.left;
+				aImg[index].style.top = aImg[index].pos.row * (icolGap + thumb_height) + irowGap +'px';
+				aImg[index].style.WebkitTransform = 'rotate('+ (Math.random() * 40 - 20) + 'deg)';
+				if (index == 0) {
+					clearInterval(timer);
+				}
+			},100);
+		}
+			oContainer.onclick = function(e){
+				var target = e.target;
+				if (target != oContainer) {//空不好使
+					if(bClick) {//大图
+						for (var i = 0; i <NUM; i++) {
+						aImg[i].style.left = aImg[i].pos.left + 'px';
+						aImg[i].style.top = aImg[i].pos.top + 'px';
+						setStyle(aImg[i],'transform','rotate('+ (Math.random() * 40 - 20) + 'deg)');
+
+						aImg[i].style.borderWidth = '5px';
+						var oSpan = aImg[i].getElementsByTagName('span')[0];
+						oSpan.style.opacity = 0;
+						oPrev.style.display = oNext.style.display = 'none';
+						}
+					}else{
+						//xiaotu
+						var bigImgPos = {
+							left : (oContainer.offsetWidth - BIG_width)/2,
+							top : (oContainer.offsetHeight- BIG_height)/2
+						};
+						for (var i = 0; i < NUM  ; i++) {
+								aImg[i].style.left = bigImgPos.left + thumb_width * aImg[i].pos.col + 'px';
+								aImg[i].style.top = bigImgPos.top + thumb_height * aImg[i].pos.row + 'px';
+								aImg[i].style.borderWidth = '1px';
+								setStyle(aImg[i],'transform','rotate(0deg)');
+
+								var oSpan = aImg[i].getElementsByTagName('span')[0];
+								//3.无法知道点击的是哪一张图片
+								oSpan.style.opacity = 1;
+								oSpan.style.backgroundImage = 'url(img/'+ target.parentNode.index +'.jpg)' ;
+								oSpan.style.backgroundPosition =-aImg[i].pos.col * thumb_width + 'px '
+								+ (-aImg[i].pos.row * thumb_height) + 'px' ;
+
+					}
+					oPrev.style.display = oNext.style.display = 'block'; 
+					nowIdx = target.parentNode.index;
+
+
+					}
+					bClick = !bClick;
+				}
+			};
+
+			//4.不会返回模式
+			oPrev.onclick = oNext.onclick = function(){
+				if (this == oPrev) {
+					nowIdx--;
+					if (nowIdx == 0) {
+						nowIdx = NUM;
+					}
+				}else{
+					nowIdx++; 
+					if(nowIdx == NUM+1) {
+						nowIdx = 1;
+					}
+				}
+				var arr = [];
+				for (var i = 0; i < NUM; i++) {
+					arr.push(i);//？？？？？？？？？？？？？？？？？？
+				}
+				arr.sort(function(){//？？？？？？？？？？？？？？？？？？？？？？
+					return Math.random() - 0.5;
+				});
+				var timer = setInterval(function(){
+					var item = arr.pop();
+					var oSpan = aImg[item].getElementsByTagName('span')[0];
+					oSpan.style.backgroundImage = 'url(img/' + nowIdx +'.jpg)';
+					if (arr.lenth == 0) {
+						clearInterval(timer);
+					}
+				},30);
+
+			};
+
+
+
+
+		//创造适应各个浏览器的函数头
+		function setStyle(elem,prop,val){
+			['Webkit','Moz','','O','Ms'].forEach(function(prefix){
+				elem.style[prefix + prop.charAt(0).toUpperCase() + prop.substring(1)] = val;
+			});
+		}
+		})();
+		
+	</script>
+</body>
+</html>

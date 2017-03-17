@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		body{
+			background:#ccffcc;
+		}
+		#photo1{
+			width: 600px;
+			height: 400px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -300px;
+			margin-top: -200px;
+			/*background: url(1.jpg) no-repeat;*/
+			background-size: contain;
+			-webkit-transform:rotateZ(-30deg);
+			box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.6);
+			-webkit-transition:all 2s ease;
+		}
+		#photo2{
+			width: 600px;
+			height: 400px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -300px;
+			margin-top: -200px;
+			/*background: url(2.jpg) no-repeat;*/
+			background-size: contain;
+			-webkit-transform:rotateZ(45deg);
+			box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.6);
+			-webkit-transition:all 1s ease;
+		}
+		#photo1:hover{
+			z-index: 1;
+			-webkit-transform:rotateZ(30deg);
+			-webkit-transform:scale(1.2) rotate(0deg);
+		}
+		#photo2:hover{
+			z-index: 1;
+			-webkit-transform:rotateZ(0deg);
+			-webkit-transform:scale(1.2) rotate(0deg);
+
+		}
+
+
+	</style>
+</head>
+<body>
+	<div id="photo1"></div>
+	<div id="photo2"></div>
+</body>
+</html>
