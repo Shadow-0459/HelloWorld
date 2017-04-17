@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片集2</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			list-style: none;
+		}
+		#container{
+			width: 520px;
+			height: 280px;
+			margin: 200px auto;
+			position: relative;
+			overflow: hidden;
+		}
+		#imgs{
+			width: 2080px;
+			height: 280px;
+			position: absolute;
+			left: 0;
+		}
+		#imgs img{
+			/*display: none;*/
+			float: left;
+		}
+		#imgs .selected{
+			display: block;
+		}
+		#tab{
+			position: absolute;
+			right: 10px;
+			bottom: 10px;
+		}
+		#tab li{
+			float: left;
+			width: 20px;
+			height: 20px;
+			background: #000;
+			color: #fff;
+			text-align: center;
+			line-height: 20px;
+			margin-right: 2px;
+			cursor: pointer;
+		}
+		#tab .select{
+			background: orange;
+		}
+		#arrows{
+			position: absolute;
+			left: 10px;
+			bottom: 10px;
+		}
+		#prev, #next{
+			width: 20px;
+			height: 20px;
+			display: inline-block;
+			background: #000;
+			color: #fff;
+			text-align: center;
+			line-height: 20px;
+			margin-right: 2px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="imgs">
+			<img src="../../../../Users/Mr%20Ripper/Desktop/web前端/新建文件夹/1.jpg" alt="" class="selected">
+			<img src="../../../../Users/Mr%20Ripper/Desktop/web前端/新建文件夹/2.jpg" alt="">
+			<img src="../../../../Users/Mr%20Ripper/Desktop/web前端/新建文件夹/3.jpg" alt="">
+			<img src="../../../../Users/Mr%20Ripper/Desktop/web前端/新建文件夹/4.jpg" alt="">
+		</div>
+		<ul id="tab">
+			<li class="select">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		<div id="arrows">
+			<span id="prev">&lt;</span>
+			<span id="next">&gt;</span>
+		</div>
+	</div>
+	<script src="../../../../Users/Mr%20Ripper/Desktop/web前端/新建文件夹/jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#tab li').on('click',function(){
+				var index = $(this).index();
+				$('#tab li:eq(' + index+')').addClass('select').siblings().removeClass('select');
+				
+				$('#imgs img:eq('+index + ')').addClass('selected'a;;</script>).siblings().removeClass('selected');
+			});
+		});
+
+
+
+
+	</script>
+	</body>
+</html>;
