@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<mata charset = "UTF-8">
+	<title>滚动条</title>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.header {
+		height: 500px;
+		width: 100%;
+		background: red;
+	}
+	#scrolll{
+		height: 100px;
+		width: 100%;
+		background: green;
+	}
+	body{
+		height: 3000px;
+	}
+	.fix{
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
+	</style>
+</head>
+<body class="body">
+	<div class="header"></div>
+	<div id="scrolll"></div>
+<script type="text/javascript">
+	
+	var oSearch = document.getElementById('scrolll');
+	var iSearchTop = oSearch.offsetTop;
+	var bIs = false;
+
+	window.onscroll = function(){
+		var iScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+
+		if (iScrollTop >= iSearchTop && !bIs){
+			oSearch.className = 'fix';
+			bIs = true;
+		}
+		else if (iScrollTop < iSearchTop && bIs){
+			oSearch.className = '';
+			bIs = false;
+		}
+		};
+
+
+
+
+
+</script>
+</body>
+</html>
