@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>wuhuan</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.circle,.circle:after{
+			width: 200px;
+			height: 200px;
+			/*margin: 10px 10px 10px 10px;*/
+			border-radius: 50%;
+			position: absolute;
+		}
+		.circle:after{
+			content: '';
+			display: block;
+			top: -10px;
+			left: -10px;
+		}
+		.blue{
+			left:0px;
+			top: 0;
+			border: 10px solid blue;
+			position: absolute;
+		}
+		.blue.circle:after{
+			z-index: 5;
+			border: 10px solid blue;
+			border-bottom-color: transparent;
+		}
+		.black{
+			left: 230px;
+			top: 0;
+			border: 10px solid black;
+			position: absolute;
+		}
+		.black.circle:after{
+			
+			
+			z-index: 3;
+			border: 10px solid black;
+			/*border-bottom-color: transparent;*/
+		}
+		.red{
+			left: 460px;
+			top: 0;
+			border: 10px solid red;
+			position: absolute;
+		}
+		.red.circle:after{
+			z-index: 5;
+			
+			border: 10px solid red;
+			border-left-color: transparent;
+		}
+		.yellow{
+			left: 115px;
+			top: 110px;
+			border: 10px solid yellow;
+			position: absolute;
+		}
+		.yellow.circle:after{
+			z-index: 4;
+			border: 10px solid yellow;
+			border-right-color: transparent;
+		}
+		.green{
+			left: 345px;
+			top: 110px;
+			border: 10px solid green;
+
+			position: absolute;
+		}
+		.green.circle:after{
+			z-index: 4;
+			
+			border: 10px solid green;
+			border-top-color: transparent;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="circle blue"></div>
+	<div class="circle black"></div>
+	<div class="circle red"></div>
+	<div class="circle yellow"></div>
+	<div class="circle green"></div>
+</body>
+</html>
