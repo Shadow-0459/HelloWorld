@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>旋转图标</title>
+	<style type="text/css">
+		#container{
+			/*1.放的对象css一定要选对*/
+			position: fixed;
+			right: 40px;
+			bottom: 40px;
+			width: 50px;
+			height: 50px;
+		}
+		img{
+			width: 50px;
+			height:50px;
+			position: absolute;
+			cursor: pointer;
+			-webkit-transition:transform 1s linear;
+		}
+		#circle{
+			width: 50px;
+			height: 50px;
+			-webkit-transition:transform 1s linear;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="menu">
+			<img src="full.png">
+			<img src="open.png">
+			<img src="prev.png">
+			<img src="refresh.png">
+			<img src="close.png">
+		</div>
+		<div id="circle">
+			<img src="home.png">
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		(function(){
+			var oCircle = document.querySelector('#circle');
+			var oContainer = document.querySelector('#container');
+			var oMenu = document.querySelector('#menu');
+			var aImge = oMenu.querySelectorAll('img');
+			var bClick = false;
+			var current;
+			oCircle.addEventListener('click',function(){
+				if (bClick) {
+					//合并的就变成弹出状态
+					setStyle(this,'transform','rotate(0deg)');
+					for (var i = 0; i < aImge.length; i++) {
+						setStyle(aImge[i],'transitionDelay',50*i + 'ms');
+						var x =-150 * Math.cos(22.5 * i *Math.PI / 180);
+						var y =-150 *  Math.sin(22.5 * i *Math.PI / 180);
+						// setStyle(aImge[i],'transform','translate('+ 0 +'px,'+ 0 + 'px) rotate(0deg)');
+						setStyle(aImge[i],'transform','');
+					}
+				}else{
+					//弹出状态变成合并状态
+					setStyle(this,'transform','rotate(360deg)');
+					for (var i = 0; i < aImge.length; i++) {
+						setStyle(aImge[i],'transitionDelay',50*(aImge.length-i) + 'ms');
+						//3.控制每个出现的时间不会
+						var x =-150 * Math.cos(22.5 * i *Math.PI / 180);
+						var y =-150 *  Math.sin(22.5 * i *Math.PI / 180);
+						//2.不会设定 menu 图标的弹出结果位置
+						aImge[i].current = 'translate('+ x +'px,'+ y + 'px) z';
+						setStyle(aImge[i],'transform','translate('+ x +'px,'+ y + 'px) rotate(360deg)');
+					}
+			
+				}
+				bClick = !bClick;
+			},false);
+			//4.不确定对aImage的对象怎么设置是先for还是对【i】设置
+			for (var i = 0; i < aImge.length; i++) {
+				aImge[i].addEventListener('click',function(){
+                       setStyle(this,'transform', this.current + 'scale(2)');
+                       this.addEventListener('webkitTransitionEnd', fn, false);
+				},false);
+			}
+			function fn (){
+				setStyle(this,'transform', this.current + 'scale(1)');
+				this.removeEventListener('webkitTransitionEnd', fn);
+			}
+
+
+
+
+
+			function setStyle(elem,prop,val){
+				['Webkit','Moz','','O','Ms'].forEach(function(prefix){
+					elem.style[prefix + prop.charAt(0).toUpperCase() + prop.substring(1)] = val;
+				});
+			}
+		})();
+
+
+
+		
+	</script>
+</body>
+</html>
