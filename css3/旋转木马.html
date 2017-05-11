@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>旋转木马</title>
+</head>
+	<style type="text/css">
+		body{
+			-webkit-perspective:800px; 
+			-webkit-perspective-origin:50% -30%;
+		}
+		#container{
+			width: 125px;
+			height: 125px;
+			margin: 200px auto;
+			-webkit-transform-style:preserve-3d;
+			-webkit-transition :all 1s linear;
+		}
+		#container img{
+			width: 125px;
+			height: 125px;
+			position: absolute;
+				-webkit-transition :all 1s linear;
+		}
+	</style>
+<body>
+	<div id="container">
+		
+	</div>
+	<script type="text/javascript">
+		
+		var oContainer = document.querySelector('#container');
+		var hhhh = '';
+		var index = 1;
+		for (var i = 0; i < 9; i++) {
+			hhhh += '<img src="img/thumbs/'+ (i+1) +'.jpg" >';
+		}
+		oContainer.innerHTML = hhhh;
+
+		var aImg = oContainer.querySelectorAll('img');
+		setTimeout(function(){
+			for (var i = 0; i < aImg.length; i++) {
+				aImg[i].style.transitionDelay = i*100 + 'ms';
+				aImg[i].style.transform = 'rotateY('+  40*(9-i)+'deg) translateZ(200px)';
+			}
+		},0);
+		oContainer.addEventListener('click',function(){
+				this.style.WebkitTransform = 'rotateY('+40 *index +'deg)';
+				index ++;
+			});
+	</script>
+</body>
+</html>   
