@@ -1,0 +1,23 @@
+@import url(index.css);@import url(course.css);
+#news{
+	width: 1080px;
+	margin: 0 auto;
+	padding-top: 30px;
+}
+.new{
+	list-style-type: square
+}
+.new li{
+	border-bottom: 1px dotted #000;
+	height: 25px;
+	line-height: 25px;
+	margin: 5px;
+}
+.title{
+	text-align: left;
+	padding: 0px 0px 0px 13px;
+	background: url();
+}
+.date{
+	float: right;
+}

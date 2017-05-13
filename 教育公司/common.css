@@ -1,0 +1,439 @@
+*{
+	margin: 0;
+				padding: 0;
+			}
+			ol,ul{
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+			}
+			img{
+				border: 0;
+			}
+			#logo{
+				line-height: 76px;
+				margin-top: 10px;
+				float: left;
+			}
+
+			#header{
+				height: 76px;
+				
+			}
+			#header .wrapper{
+				height: 76px;
+			}
+			#nav{
+				float: right;
+				margin-top :20px;
+			}
+			#nav li{
+				float: left;
+				width: 90px;
+				height: 36px;
+			}
+			#nav a{
+				width: 90px;
+				height: 36px;
+				background: white;
+				display: block;
+				line-height: 36px;
+				text-align: center;
+				font: 12px/36px Tahoma,Verdana,Arial;
+				color: #000;
+			}
+			#nav a:hover{
+				color: red;
+			}
+			#banner{
+				height: 453px;
+				background: url(img/banner01.jpg) no-repeat 50% 50%;
+			}
+			.wrapper{
+				width: 1172px;
+				background: white;
+				margin: 0 auto;
+			}
+			#news{
+				height: 195px;	
+			}
+			#news .newswrapper{
+				background: #fff;
+				width: 1172px;
+				height: 195px;
+				margin: 0 auto;
+				padding-top: 20px;
+			}
+			#news .newleft{
+				
+				width: 660px;
+				height: 155px;
+				float: left;
+			}
+			#news .news-left-title{
+				height: 35px;
+				width: 600px;
+			}
+			.dt {
+				clear: both;
+				height: 90px;
+			}
+			.dt li{
+				background: url(img/home-bg1.png) no-repeat left center;
+				width: 280px;
+				height: 30px;
+				margin-left: 10px;
+				padding-left: 15px;
+				line-height: 30px;
+				font-size: 12px;
+				float: left;
+			}
+			.dt a{
+				width: 280px;
+				height: 30px;
+				display: block;
+				font-size: 12px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			#news .newright{
+				width: 400px;
+				height: 135px;
+				float:left;
+				
+			}
+			#news .new-right-title{
+				height: 35px;
+				width: 400px;
+			}
+			.gg {
+				
+				
+				width: 100%;
+				height: auto;
+				border: 1px dotted;
+				margin:0 auto;
+				margin-top: 20px;
+				display: inline-block;
+			}
+			.gg li{
+				background: url(img/home-bg1.png) no-repeat left center;
+				width: 100%;
+				height: 30px;
+				margin-left: 10px;
+				padding-left: 15px;
+				line-height: 30px;
+				font-size: 12px;
+				float: left;
+				text-align: center;
+			}
+			.gg a{
+				width: 90px;
+				height: 30px;
+				display: block;
+				font-size: 12px;
+				margin: 0 auto;
+				
+			}
+			#news .newest{
+				float: left;
+			}
+			#news .more{
+				display: block;
+				float: right;
+				width: 100px;
+				height: 30px;
+				
+				font-size: 12px;
+				margin-top: -10px;
+				line-height: 30px;
+				text-align: center;
+			}
+			#news .more a{
+				width: 100px;
+				height: 30px;
+				display: block;
+				text-align: center;
+				line-height: 30px;
+				border-radius: 16px;
+			}
+
+			#news .more a:hover{
+				border: 1px solid red;
+				color: #fff;
+				background:red;
+			}
+			
+			
+			
+			#courses{
+				
+				height: 450px;
+				background: rgb(245,245,245);
+				padding-top: 80px;
+			}
+
+			#courses h2,#courses h5{
+				text-align: center;
+				margin-top :20px;
+			}
+			.course {
+				width: 1100px;
+				height: auto;
+				margin: 0 auto;
+				margin-top: 50px;
+			}
+			.course li{
+				float: left;
+				width: 194px;
+				margin-left: 20px;
+			}
+			.course a{
+				display: block;
+				text-align: center;
+			}
+			#slogan {
+				color: white;
+				height: 350px;
+				background: rgb(147,196,125);
+				text-align: center;
+			}
+			.sloganwrapper{
+				width: 525px;
+				height: auto;
+				padding-top: 30px;
+				margin: 0 auto;
+			}
+			#sloganhead{
+				width: 200px;
+				height: 35px;
+				text-align: center;
+				clear: both;
+				margin: 0 auto;
+			}
+			.sloganspan1{
+				background: white;
+				float: left;
+				width: 100px;
+				height: 35px;
+				color: black;
+				line-height: 35px;
+			}
+			.sloganspan2{
+				background:rgb(241,194,50);
+				float: right;
+				width: 100px;
+				height: 35px;
+				color: white;
+				line-height: 35px;
+			}
+			#sloganyz{
+				
+				margin-top: 20px;
+				font-size: 35px;
+				text-align: center;
+			}
+			#sloganmy{
+				
+				margin-top: 15px;
+				text-align: center;
+			}
+
+			#sloganwrapper hr{
+				margin-top: 20px;
+				margin-bottom: 20px;
+			}
+
+			#slogantext{
+				width: 525px;
+				margin-top: 20px;
+				padding-top: 15px;
+				font-size: 12px;
+				line-height: 2.0;
+				border-top: 1px solid #fff;
+			}
+			#slogan-button{
+				width: 100%;
+				margin-top: 15px;
+				text-align: center;
+			}
+			#slogan-button a:hover{
+				border: 1px solid #cc9900;
+				color: #333;
+				background: #fff;
+			}
+			#slogan-button a{
+				display: inline-block;
+				width: 100px;
+				height: 25px;
+				font-size: 12px;
+				line-height: 25px;
+				border-radius: 6px;
+				border: 1px solid #fff;
+				color: #fff;
+			}
+			
+			#question{
+				height: 394px;
+				margin: 0 auto;
+				padding: 10px 0;
+				background: #FEE157;
+				
+			}
+			.question-wrapper{
+				height: 394px;
+				width: 1100px;
+				margin: 30px auto 0;
+			}
+			.questionleft{
+				float: left;
+				width: 675px;
+			}
+			
+			.question-title1{
+				width: 675px;
+				height: 32px;
+			}
+			.questionleft h1{
+				float: left;
+			}
+			.question-left-lm{
+				width: 633px;
+				height: 170px;
+				
+				padding: 20px;
+				border: 1px solid #fff;				
+			}
+			.question-left-lm li{
+				margin-top: 10px;
+			}
+			.question-left-lm  a{
+				background: url(img/Problem-bg.png) no-repeat 0 50%;
+				
+				overflow: hidden;		
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				display: block;
+				text-indent: 10px;
+			}
+			.questionleft .more{
+				display: block;
+				float: right;
+				width: 100px;
+				height: 30px;
+				
+				font-size: 12px;
+				margin-top: -10px;
+				line-height: 30px;
+				text-align: center;
+			}
+			.questionleft .more a{
+				
+				width: 100px;
+				height: 30px;
+				display: inline-block;
+				text-align: center;
+				line-height: 30px;
+				border-radius: 16px;
+
+			}
+			.questionright{
+				float: left;
+				margin-left: 60px;
+				width: 335px;
+			}
+			.question-title2{
+				width: 335px;
+				height: 32px;
+				text-align: center;
+			}
+			.question-form{
+				width: 335px;
+				height: 288px;
+				border: 1px dotted;
+			}
+			.question-label1,.question-label2,.question-label3{
+				text-align: center;
+				margin-top: 10px;
+				display: block;
+				width: 335px;
+			}
+			.question-input1,.question-input2,.question-input3{
+				    position: relative;
+				    left: 40px;
+				    margin-top: 10px;
+				    border: 1px dotted #ccc;
+				        width: 260px;
+					    height: 27px;
+					    line-height: 27px;
+			}
+			.yzm{
+				position: relative;
+				    left: 40px;
+			}
+			.question-input4{
+				width: 84px;
+				height: 26px;
+				margin-left: 5px;
+				position: relative;
+				    left: 40px;
+			}
+			.questionimg{
+				position: relative;
+				    left: 40px;
+
+			}
+			#chongzhi,#tijiao{
+				position: relative;
+				    left: 130px;
+				    margin-top: 10px;
+			}
+/*			#news .more a:hover{
+				border: 1px solid;
+				color: #fff;
+				background: white;
+			}*/
+				
+			#footer{
+				height: 122px;
+				background: #414B4A;
+				padding: 15px 0 20px;	
+				color: white;
+			}
+			.footer1-wrapper{
+				position: absolute;
+				margin: 0 auto;
+				height: 27px;
+				width: 500px;
+				left: 50%;
+				margin-left: -200px;
+				margin-top: 10px;
+			}
+			.footer1 li{
+				float: left;
+				width: 80px;
+				height: 18px;
+			}
+			.footer2{
+				text-align: center;
+				
+				margin-top: 50px;
+
+			}
+			.footer3{
+				width:400px;
+				position: absolute;
+				left: 50%;
+				margin-left: -200px;
+				text-align: center;
+				margin-top: 30px;
+
+				
+
+			}
+			#footer a{
+				color: white;
+
+			}

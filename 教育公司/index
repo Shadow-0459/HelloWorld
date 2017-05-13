@@ -1,0 +1,47 @@
+
+			#footer .footerwrapper .footer1{
+				width: 1100px;
+				margin: 10px center;
+			}
+			#footer  li{
+				float: left;
+				width: 90px;
+				height: 20px;
+			}
+			
+			#footer .footer1 a{
+				width: 90px;
+				height: 20px;
+				display: block;
+				line-height: 20px;
+				text-align: center;
+				font: 12px/36px Tahoma,Verdana,Arial;
+				color: #fff;
+			}
+			#footer p,#jiyu{
+				clear: both;
+			}	
+
+
+
+
+
+
+			<div id="footer">
+			<div class="footerwrapper">
+				<div class="footer1">
+					<ul>
+						<li><a href="#">首页</a></li>
+						<li><a href="#">关于我们</a></li>
+						<li><a href="#">课程中心</a></li>
+						<li><a href="#">新闻中心</a></li>
+						<li><a href="#">联系我们</a></li>
+					</ul>
+				</div>
+			
+				<p class="footer2">电话：0760-22517081 QQ:14837715  &nbsp; Email:pacmsi@qq.com</p>
+			<div id="footer3"> 本模板基于 
+				<a href="#">PageAdmin网站管理系统制作</a>
+			</div>
+			</div>
+	</div>
