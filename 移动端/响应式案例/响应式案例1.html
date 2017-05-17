@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>响应式案例1</title>
+	<meta charset="utf-8">
+	<meta name="viewport">
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	img{
+		border:0;
+	}
+		h1,h2,h3{
+			height:100px;
+			width: 960px;
+			background: #cccccc;
+			margin: 30px auto;
+			line-height: 100px;
+			text-align: center;
+			margin-top: 30px;
+		}
+		#banner{
+			width: 960px;
+			
+			margin: 0 auto;
+					}
+		#banner img{
+			width: 960px;
+		}
+		#cool{
+			margin: 0 auto;
+			width: 960px;
+			
+			display: table;
+
+		}
+		#left{
+			text-align: center;
+			width: 600px;
+			height: 300px;
+			float: left;
+			background: green;
+			display: table;
+			margin-right: 30px;
+		}
+		#right{
+			width: 330px;
+			height: 300px;
+			float: right;
+			background: red;
+			display: table;
+		}
+		#left p,#right p{
+			vertical-align: middle;
+			display: table-cell;
+		}
+		#footer{
+			clear: both;
+		}
+		@media screen and (max-width: 960px){
+			h1,h2,h3{
+				width: 100%;
+			}
+			#left{
+				width: 67%;
+				margin-right: 3%;
+			}
+			#right{
+				width: 30%;
+			}
+			#banner{
+				width: 100%;
+			}
+			#banner img{
+				width: 100%;
+				max-width: 100%;
+			}
+			#cool{
+				width: 100%;
+			}
+		}
+		@media screen and (max-width: 479px){
+			#right,#left{
+				width: 100%;
+			}
+		}
+	</style>
+</head>
+<body>
+	<h1>header</h1>
+	<h2>looper</h2>
+	<div id="banner">
+		<img src="2.jpg">
+	</div>
+	<div id="cool">
+		<div id="left">
+		<p >qaaa aaa  aaaaa aaa aaaaaaaa aaaaaa aa aaaaa</p></div>
+		<div id="right">
+		<p >bbbbbb  bbbb bbbbbb bbbbbbb  bbbbbbb bbbbb b</p></div>
+	</div>
+	<h3>footer</h3>
+</body>
+</html>
