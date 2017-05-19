@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>移动端图片集</title>
+	<meta charset="utf-8">
+	<meta name="viewport">
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		img{
+			border: 0;
+		}
+		body{
+			background: black;
+		}
+		#container {
+			
+		}
+		#container li{
+			float: left;
+		}
+		/*#container img{
+			display: block;
+		}*/
+		#container li{
+			margin-right: 2px;
+			margin-top: 2px;
+		}
+		#container li:nth-child(4n){/*从一开始*/
+			margin-right: 0;
+		}
+		#big_img{
+			width: 100%;
+			height: 100%;
+			background: ;
+			position: absolute;
+			display: none;
+		}
+	</style>
+</head>
+
+<body>
+	<ul id="container"></ul>
+	<div id="big_img"></div>
+	<script src="zepto.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var $big_img = $('#big_img');
+			var num = 16;
+			var html = '';
+			var nowIndex = 0;
+			var iPadding = 2;//
+			var $Container = $('#container');
+			for (var i = 0; i < num; i++) {
+				
+				html += '<li><img src="img/'+ (i+1)+'.jpg"></li>'
+			}
+			$Container.append(html);
+			
+			var iClientWidth = $(document.body).width();
+			$('img',$Container).css({
+				width : (iClientWidth - 3 * iPadding ) / 4 ,
+				height :　(iClientWidth - 3 * iPadding ) / 4
+				
+			});
+			$('li',$Container).css({
+				width : (iClientWidth - 3 * iPadding ) / 4 ,
+				height :　(iClientWidth - 3 * iPadding ) / 4
+				
+			});
+			$Container.on('tap','li',function(){
+				nowIndex = $(this).index();
+				$Container.hide();
+				$big_img.show();
+				var src = $(this).children().attr('src').split('.')[0] + 'large.jpg';
+				changeImg(src);
+			});
+			$big_img.on('tap',function(){
+				$(this).hide();
+				$container.show();
+			}).on('swipLeft',function(){
+				nowIndex++;
+				if (nowIndex == num) {
+					nowIndex = 0;
+				}
+				changeImg('img/'+ (nowIndex+1)+'.largr.jpg');
+			}).on('swipRight',function(){
+				nowIndex--;
+				if (nowIndex == -1) {
+					nowIndex = num-1;
+				}
+				changeImg('img/'+ (nowIndex+1)+'.largr.jpg');
+			});
+			function changeImg(src){
+				$big_img.css({
+					background:'url('+ src + ') no-repeat center',
+					backgroundSize: 'contain'//扩展到最大
+				});
+			}
+
+
+
+
+
+
+		});
+		
+
+	</script>
+</body>
+</html>
