@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<title>Bootstrap 3</title>
+</head>
+<body>
+	<!-- 12栏网格
+	col-xs-*超小//一横排
+	col-sm-*小//多了换行 
+	col-md-*中等
+	col-lg-*大尺寸（网格） -->
+	<div class="container">
+		<!-- <nav class="navbar navbar-inverse"> -->
+		<!-- 导航栏 -->
+		<nav class="navbar navbar-inverse navbar-fixed-top"> 
+			<div class="navbar-header">
+				<button class="navbar-toggle" data-toggle="collapse" data-target="#responsive-navbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="#" class="navbar-brand"><strong>lalala</strong>.net</a>
+			</div>
+			
+			<div class="collapse navbar-collapse" id="responsive-navbar">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="">111</a></li>
+				<li class="active"><a href="">222</a></li>
+				<li class="active"><a href="">333</a></li>
+			</ul> 
+			<!-- 搜索框 -->
+			<form action="" class="navbar-form navbar-left">
+				<input type="text" name="" placeholder="搜索" class="form-control">
+				<button type="submit">
+					<span class="glyphicon glyphicon-search"></span>
+				</button>
+			</form>
+			<a href="" class="btn btn-primary btn-sm navbar-btn navbar-right hidden-xs">订阅</a>
+			<div class="profile navbar-right">
+				<ul class="nav navbar-nav">
+					<li><a href="" data-toggle="modal" data-target="#login-modal">登录</a></li><!-- login-form.html -->
+					<li><a href="">注册</a></li>
+				</ul>
+				<p class="navbar-text">您好<a href="#" class="navbar-link">zzz</a></p>
+			</div>
+			</div>
+		</nav>
+				
+		<div class="container">
+			<p class="alert alert-info">
+				Mr. Johnson had never been up in an aerophane before and he had read a lot about air accidents, so one day when a friend offered to take him for a ride in his own small phane, Mr. Johnson was very worried about accepting. Finally, however, his friend persuaded him that it was very safe, and Mr. Johnson boarded the plane.
+			</p>
+		</div>
+		<div class="modal fade" id="login-modal" tabindex="-1"><!-- tabindex为了先读 -->
+			<div class="modal-dialog ">
+				<div class="modal-content">
+					
+				</div>
+			</div>
+		</div>
+		
+	<!-- <h1 class="page-header">主体</h1>
+	<p>　Mr. Johnson had never been up in an aerophane before and he had read a lot about air accidents, so one day when a friend offered to take him for a ride in his own small phane, Mr. Johnson was very worried about accepting. Finally, however, his friend persuaded him that it was very safe, and Mr. Johnson boarded the plane.
+
+　　His friend started the engine and began to taxi onto the runway of the airport. Mr. Johnson had heard that the most dangerous part of a flight were the take-off and the landing, so he was extremely frightened and closed his eyes.
+
+　　After a minute or two he opened them again, looked out of the window of the plane, and said to his friend, "Look at those people down there. They look as small as ants, don't they?"
+
+　　"Those are ants," answered his friend. "We're still on the ground."</p> -->
+
+	<div class="row"></div>
+	<div class="col-xs-8 col-md-push-6">
+		<h1 class="page-header">主体</h1>
+	<p class="visible-xs alert alert-info">　<!-- //非特定情况下隐藏 -->
+	Mr. Johnson had never been up in an aerophane before and he had read a lot about air accidents, so one day when a friend offered to take him for a ride in his own small phane, Mr. Johnson was very worried about accepting. Finally, however, his friend persuaded him that it was very safe, and Mr. Johnson boarded the plane.
+
+　　His friend started the engine and began to taxi onto the runway of the airport. Mr. Johnson had heard that the most dangerous part of a flight were the take-off and the landing, so he was extremely frightened and closed his eyes.</p>
+
+		<div class="row">
+			<div class="col-md-4">
+				<h2>区块1</h2>
+				<p>His friend started the engine and began to taxi onto the runway of the airport. Mr. Johnson had heard that the most dangerous part of a flight were the take-off and the landing, so he was extremely frightened and closed his eyes.</p>
+
+			</div>
+			<div class="col-md-4">
+				<h2>区块2</h2>
+				<p>His friend started the engine and began to taxi onto the runway of the airport. Mr. Johnson had heard that the most dangerous part of a flight were the take-off and the landing, so he was extremely frightened and closed his eyes.</p>
+				
+			</div>
+		<!-- 	<div class="clear-fix"></div> 修复元素浮动-->
+			<div class="col-md-4">
+				<h2>区块3</h2>
+				<p>His friend started the engine and began to taxi onto the runway of the airport. Mr. Johnson had heard that the most dangerous part of a flight were the take-off and the landing, so he was extremely frightened and closed his eyes.</p>
+				
+			</div><div class="col-md-6 col-md-offset-6">
+				<h2>区块5</h2><!-- //拖动。特使蓝框 -->
+				<p class="alert alert-info">His friend started the engine and began to taxi onto the runway of the airport. Mr. Johnson had heard that the most dangerous part of a flight were the take-off and the landing, so he was extremely frightened and closed his eyes.</p>
+				
+			</div><div class="col-md-6">
+				<h2>区块6</h2>
+				<p>His friend started the engine and began to taxi onto the runway of the airport. Mr. Johnson had heard that the most dangerous part of a flight were the take-off and the landing, so he was extremely frightened and closed his eyes.</p>
+				
+			</div>
+		</div>
+
+	</div>
+	<div class="col-xs-4 col-md-pull-6 hidden-xs">
+		<h1 class="page-header ">边栏</h1>
+	<p>　Mr. Johnson had never been up in an aerophane before and he had read a lot about air accidents, so one day when a friend offered to take him for a ride in his own small phane, Mr. Johnson was very worried about accepting. Finally, however, his friend persuaded him that it was very safe, and Mr. Johnson boarded the plane.
+
+　　His friend started the engine and began to taxi onto the runway of the airport. Mr. Johnson had heard that the most dangerous part of a flight were the take-off and the landing, so he was extremely frightened and closed his eyes.
+	</div>
+
+
+
+
+</div>
+
+
+<div class="container">
+		<div class="carousel slide" data-ride="carousel">
+			<div class="carousel-inner">
+				<div class="item">
+					<img src="1.jpg">
+				</div>
+				<div class="item">
+					<img src="2.jpg">
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- 时间延迟
+	data-interver="1000" -->
+	<!-- data-pause="false"	鼠标不悬停 
+	data-wrap="false" 不循环 -->
+
+
+	<script type="text/javascript" src="lib/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="lib/holder.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#login-modal').modal({
+				show:false,
+				backdrop:false
+				// 设置浅黑背景不显示
+				// remote:'login-form.html'
+			});
+			// 点击左右切换
+			$('.prev-slide').on('click',function(){
+				$('#slideshow').carousel('prev');
+			});
+			$('.next-slide').on('click',function(){
+				$('#slideshow').carousel('next');
+			});
+			// 左右键切换
+			$(document).on('keydown',function(e){
+				console.log(e.which);
+				switch(e.which){
+					case 37:
+						$('#slideshow').carousel('prev');
+						break;
+					case 39:
+						$('#slideshow').carousel('next');
+						break;
+				}
+			});
+			// 播放暂停
+			var play = false;
+			$('.play-and-play').click(function(){
+				if (!play) {
+					$('#slideshow').carousel('cycle');
+					$(this).children('span').removeClass('.glyphicon-play').addClass('glyphicon-pause');
+				}else{
+					$('#slideshow').carousel('pause');
+					$(this).children('span').removeClass('.glyphicon-pause').addClass('glyphicon-play');
+				}
+				play = !play;
+			});
+		});
+	</script>
+</body>
+</html>
